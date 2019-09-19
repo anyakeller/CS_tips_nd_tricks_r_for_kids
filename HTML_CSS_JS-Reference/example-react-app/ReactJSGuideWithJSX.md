@@ -18,6 +18,7 @@ react.js is a library that gives the developer better control of their website. 
       - [JSX Example](#jsx-example)
       - [JSX Props](#jsx-props)
       - [Lifecycle](#lifecycle)
+      - [Event Handlers in React](#event-handlers-in-react)
     - [React console actions](#react-console-actions)
 
 ## Creating and Running a React Demo App
@@ -108,6 +109,7 @@ This creates a live updating clock
 
 componentDidMount() is run after the element is displayed
 componentWillUnmount() is run if the element is removed and the lifecycle ends
+setState() lets react know to update the DOM
 
 ```JSX
 class Clock extends React.Component {
@@ -147,6 +149,27 @@ ReactDOM.render(
   <Clock />,
   document.getElementById('root')
 );
+```
+
+#### Event Handlers in React
+
+Event handlers are a bit different. Below is an example of a snippit of a function that returns a JSX element. This one is a button.
+
+Example:
+
+```JSX
+function clicky() {
+  function iwasclicked(e) {
+    e.preventDefault();
+    console.log("You clicked MEEE");
+  }
+
+  return (
+    <button onClick={iwasclicked}>
+      Click me
+    </button>
+  );
+}
 ```
 
 ### React console actions
