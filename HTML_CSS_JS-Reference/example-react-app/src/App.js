@@ -37,24 +37,24 @@ function FartThePotato(pname) {
 
 function indexContents() {
     return (
-        <body>
+        <div>
             <CssAndScripts />
-            <div id="main" class="container-fluid py-3">
-                <div class="row">
-                    <div class="col">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-4">React JS Example!</h1>
-                                <p class="lead">
+            <div id="main" className="container-fluid py-3">
+                <div className="row">
+                    <div className="col">
+                        <div className="jumbotron jumbotron-fluid">
+                            <div className="container">
+                                <h1 className="display-4">React JS Example!</h1>
+                                <p className="lead">
                                     This is a react js example page
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <span class="d-block p-2 shadow p-3 mb-5 rounded text-light bg-dark">
+                <div className="row">
+                    <div className="col">
+                        <span className="d-block p-2 shadow p-3 mb-5 rounded text-light bg-dark">
                             <h1>I am your index page!!!</h1>
                             <FartThePotato potatoType="Japanese Sweet Potato" />
                             <FartThePotato potatoType="Garnet" />
@@ -64,7 +64,7 @@ function indexContents() {
                     </div>
                 </div>
             </div>
-        </body>
+        </div>
     );
 }
 
