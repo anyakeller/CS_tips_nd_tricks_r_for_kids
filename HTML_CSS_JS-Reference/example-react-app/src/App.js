@@ -2,21 +2,70 @@ import React from "react";
 import "./App.css";
 import Clock from "./Clock.js";
 
-function indexContents() {
-    console.log(Clock);
+function CssAndScripts() {
     return (
-        <div id="index-contents">
-            <h1>I am your index page!!!</h1>
-            <FartThePotato potatoType="Japanese Sweet Potato" />
-            <FartThePotato potatoType="Garnet" />
-            <FartThePotato potatoType="Ruby" />
-            <Clock />
+        <div>
+            <link
+                rel="stylesheet"
+                href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossOrigin="anonymous"
+            />
+            <link rel="stylesheet" href="assets/CSS/style.css" />
+            <script
+                src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossOrigin="anonymous"
+            ></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossOrigin="anonymous"
+            ></script>
+            <script
+                src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossOrigin="anonymous"
+            ></script>
         </div>
     );
 }
 
 function FartThePotato(pname) {
     return <h3>{pname.potatoType} has been farted</h3>;
+}
+
+function indexContents() {
+    return (
+        <body>
+            <CssAndScripts />
+            <div id="main" class="container-fluid py-3">
+                <div class="row">
+                    <div class="col">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-4">React JS Example!</h1>
+                                <p class="lead">
+                                    This is a react js example page
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span class="d-block p-2 shadow p-3 mb-5 rounded text-light bg-dark">
+                            <h1>I am your index page!!!</h1>
+                            <FartThePotato potatoType="Japanese Sweet Potato" />
+                            <FartThePotato potatoType="Garnet" />
+                            <FartThePotato potatoType="Ruby" />
+                            <Clock />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </body>
+    );
 }
 
 const mainWebsiteFormat = <div id="page-body">{indexContents()}</div>;
