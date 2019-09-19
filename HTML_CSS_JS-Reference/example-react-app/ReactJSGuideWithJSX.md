@@ -158,7 +158,7 @@ Event handlers are a bit different. Below is an example of a snippit of a functi
 Example:
 
 ```JSX
-function clicky() {
+function clickyBtn() {
   function iwasclicked(e) {
     e.preventDefault();
     console.log("You clicked MEEE");
