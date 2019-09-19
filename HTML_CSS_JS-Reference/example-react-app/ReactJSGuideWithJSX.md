@@ -16,6 +16,8 @@ react.js is a library that gives the developer better control of their website. 
     - [Using JSX](#using-jsx)
       - [JSX Intro](#jsx-intro)
       - [JSX Example](#jsx-example)
+      - [JSX Props](#jsx-props)
+      - [Lifecycle](#lifecycle)
     - [React console actions](#react-console-actions)
 
 ## Creating and Running a React Demo App
@@ -63,6 +65,8 @@ JSX is a javascript syntax extention. It creates react-style elements bound to v
 This example uses a function which returns a react element. This element is referenced in the `ReactDOM.render()` call.
 It displays a blank page with "I am your index page!!!" in h1 tags within the two div tags.
 
+Example:
+
 ```JSX
 function indexContents() {
   return (
@@ -75,6 +79,71 @@ function indexContents() {
 const mainWebsiteFormat = <div id="page-body">{indexContents()}</div>;
 
 ReactDOM.render(mainWebsiteFormat, document.getElementById("root"));
+```
+
+#### JSX Props
+
+Props let the user write a function that creates html code. This is usefull when the html is repeated, especially when a value is changed but the format stays the same. The function turns into a html tag and the attrubutes are referenced in the function.
+
+Example:
+
+```JSX
+function FartThePotato (pname){
+  return <h3>{pname.potatoType} has been farted</h3>;
+}
+
+const element = <FartThePotato potatoType="Japanese Sweet Potato" />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+#### Lifecycle
+
+Updating an element live is best done by replacing the element generation with a class and giving it methods. The methods are referred to as "lifecycle methods"
+
+Example from [reactjs docs on state and lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+This creates a live updating clock
+
+```JSX
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
 ```
 
 ### React console actions
