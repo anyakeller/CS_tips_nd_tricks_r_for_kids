@@ -106,6 +106,9 @@ Updating an element live is best done by replacing the element generation with a
 Example from [reactjs docs on state and lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 This creates a live updating clock
 
+componentDidMount() is run after the element is displayed
+componentWillUnmount() is run if the element is removed and the lifecycle ends
+
 ```JSX
 class Clock extends React.Component {
   constructor(props) {
