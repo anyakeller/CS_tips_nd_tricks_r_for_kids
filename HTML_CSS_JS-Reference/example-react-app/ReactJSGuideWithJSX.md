@@ -11,9 +11,12 @@ react.js is a library that gives the developer better control of their website. 
     - [To run your new app](#to-run-your-new-app)
       - [Possible Error Message and the Specific Steps to Fix It](#possible-error-message-and-the-specific-steps-to-fix-it)
     - [To Edit Your App](#to-edit-your-app)
-    - [To Build Your App for Production](#to-build-your-app-for-production)
-    - [To Test Run the App](#to-test-run-the-app)
-    - [Don't do this unless you know what you're doing -- I dont](#dont-do-this-unless-you-know-what-youre-doing----i-dont)
+      - [React App Intro](#react-app-intro)
+      - [Basic React Example](#basic-react-example)
+    - [Using JSX](#using-jsx)
+      - [JSX Intro](#jsx-intro)
+      - [JSX Example](#jsx-example)
+    - [React console actions](#react-console-actions)
 
 ## Creating and Running a React Demo App
 
@@ -37,18 +40,45 @@ None of this worked for me. I ran `$ brew install webpack` and that worked. Brew
 
 ### To Edit Your App
 
+#### React App Intro
+
 The application is saved in src/App.js
 When you use the react js template, you can modify the HTML code marked and build your site there.
 In the src directory, index.js renders the index page.
 
-### To Build Your App for Production
+#### Basic React Example
 
-`$ npm run build`
+```js
+ReactDOM.render(<p>I am a paragraph </p>, document.getElementById("root"));
+```
 
-### To Test Run the App
+### Using JSX
 
-`$ npm test`
+#### JSX Intro
 
-### Don't do this unless you know what you're doing -- I dont
+JSX is a javascript syntax extention. It creates react-style elements bound to variables which can be referenced with curly braces {}
 
-`$ npm run eject`
+#### JSX Example
+
+This example uses a function which returns a react element. This element is referenced in the `ReactDOM.render()` call.
+It displays a blank page with "I am your index page!!!" in h1 tags within the two div tags.
+
+```JSX
+function indexContents() {
+  return (
+    <div id ="index-contents">
+      <h1>I am your index page!!!</h1>
+    </div>
+  );
+}
+
+const mainWebsiteFormat = <div id="page-body">{indexContents()}</div>;
+
+ReactDOM.render(mainWebsiteFormat, document.getElementById("root"));
+```
+
+### React console actions
+
+-   To Build Your App for Production `$ npm run build`
+-   To Test Run the App `$ npm test`
+-   Don't do this unless you know what you're doing -- I dont `$ npm run eject`

@@ -1,16 +1,18 @@
 import React from "react";
 import "./App.css";
 
-function App() {
+function indexContents() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-            </header>
+        <div id="index-contents">
+            <h1>I am your index page!!!</h1>
         </div>
     );
+}
+
+const mainWebsiteFormat = <div id="page-body">{indexContents()}</div>;
+
+function App() {
+    return mainWebsiteFormat;
 }
 
 export default App;
