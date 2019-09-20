@@ -1,4 +1,4 @@
-# Tricks r 4 kidz
+# Tricks r 4 kidz [![Build Status](https://travis-ci.org/anyakeller/tricks_r_4_kidz.svg?branch=master)](https://travis-ci.org/anyakeller/tricks_r_4_kidz)
 ###### Silly rabbit, we all need cheatsheets and so do I.  Fork and customize me!
 ###### An everything reference for stuff CS
 
