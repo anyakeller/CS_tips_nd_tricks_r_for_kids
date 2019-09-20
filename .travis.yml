@@ -4,13 +4,14 @@ node_js:
 cache:
     directories:
         - node_modules
+        - HTML_CSS_JS-Reference/example-react-app
 script:
     - npm test
-    # - npm run build
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $github_token
-#   local_dir: build
-#   on:
-#     branch: master
+    - npm run build
+deploy:
+    provider: surge
+    skip_cleanup: true
+    domain: example-react-app.surge.sh
+    project: ./build/
+on:
+    branch: master
