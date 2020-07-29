@@ -4,37 +4,61 @@
 
 set nocompatible
 filetype off                  " required
-
-" vundleeee
-" Run :source %  :PluginInstall
-" To remove, run :PluginUpdate :PluginClean
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'alvan/vim-closetag'
-Plugin 'valloric/matchtagalways'
-Plugin 'valloric/youcompleteme'
-Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'morhetz/gruvbox'
-"ploog
-call vundle#end()            " required
-filetype plugin indent on    " required
+" folding
+set foldmethod=marker
 "done ploof
 
-" matchtagalways color customize
-let g:mta_use_matchparen_group = 0
-let g:mta_set_default_matchtag_color = 0
-highlight MatchTag ctermfg=black ctermbg=magenta guifg=black guibg=magenta
+" ahhhh 
+let g:prettier#config#parser = 'babylon'
+call plug#begin()
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'eslint/eslint'
+Plug 'scrooloose/syntastic'
+Plug 'townk/vim-autoclose'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'valloric/matchtagalways'
+Plug 'shougo/neocomplete.vim'
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-commentary'
+call plug#end()
+" neocomplete 
+let g:neocomplete#enable_at_startup = 1
+
+" pretttier
+let g:prettier#config#trailing_comma = 'none'
 
 " nerdtree shortcut
 map <C-n> :NERDTreeToggle<CR>
 
+" syntastic 
+let g:syntastic_javascript_checkers=['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+" handlebars
+let g:mustache_abbreviations = 1
+
+" indent
+let g:indent_guides_enable_on_vim_startup = 1
+
 colorscheme gruvbox
 
+" jump to 
+runtime macros/matchit.vim
+
+
+
 " duh
-syntax on
+" syntax on
 
 "swppp
 set noswapfile
@@ -67,25 +91,33 @@ cabb WQ wq
 cabb wQ wq
 
 " my initilization stuff
-set mouse=
+set mouse=a
 set number
 
 " create mouse command
 " stolen function
-function! TogM()
-	" check if mouse is enabled
-	if &mouse == 'a'
-		" disable mouse
-		set mouse=
-		" set number
-		set number 
-	else
-		" enable mouse everywhere
-		set mouse=a
-		" set nonumber
-		set nonumber
-	endif
-endfunc
+" function! TogM()
+" check if mouse is enabled
+"	if &mouse == 'a'
+" disable mouse
+"		set mouse=
+" set number
+"		set number 
+"	else
+" enable mouse everywhere
+"		set mouse=a
+" set nonumber
+"		set nonumber
+"	endif
+"endfunc
 " map C-l
-map <C-l> :call TogM()<CR>
+"map <C-l> :call TogM()<CR>
 
+" copy paste?
+set clipboard=unnamed
+
+"stupid cut thing
+nnoremap f "_d
+vnoremap f "_d
+
+set cursorline
